@@ -57,6 +57,7 @@ client.on("message", (message) => {
 	}
 
 	// TODO: Write and read data from local file in JSON.
+	// TODO: Make configurable via command.
 	if(players[author.username]) {
 		let player = players[author.username];
 		let previousMessage = player.previousMessage;
