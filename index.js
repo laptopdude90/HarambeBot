@@ -6,11 +6,11 @@ const promptly = require("promptly");
 
 var players = {};
 
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min;
-}
+Math.prototype.getRandomInt = (min, max) => {
+	min = Math.ceil(min);
+	max = Math.floor(max);
+	return Math.floor(Math.random() * (max - min)) + min;
+};
 
 // TODO: Modularize into functions/objects.
 client.on("message", (message) => {
@@ -38,7 +38,7 @@ client.on("message", (message) => {
 				while(baby.username === "HarambeBot") {
 					baby = members.random();
 				}
-				let babyTime = getRandomInt(5, 31);
+				let babyTime = Math.getRandomInt(5, 31);
 				client.sendMessage(message, `:monkey::baby: **${baby.username} is in my enclosure for ${babyTime}s!** :baby::monkey:`, (err, response) => {
 					let timer = setInterval(() => {
 						if(babyTime) {
