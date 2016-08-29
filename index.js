@@ -115,6 +115,6 @@ promptly.prompt("Email: ", (err, result) => {
 	let email = result;
 	promptly.prompt("Password: ", (err, result) => {
 		let password = result;
-		client.login(email, password);
+		client.login(email, password, err => console.log(err));
 	});
 });
