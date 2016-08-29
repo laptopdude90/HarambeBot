@@ -20,14 +20,14 @@ client.on("message", (message) => {
 	let args = content.split(" ");
 
 	if(message.channel.isPrivate) { 
-		author.sendMessage("**About**\nDigital Harambe reincarnation.\n\nDeveloper: N3rdFall\nVersion: 0.1.1\n\n**Commands (WIP)**\n• !dicksout - *Get 'em ready.*\n• !baby - *It's more than a three year old now.*");
+		author.sendMessage("**About**\nDigital Harambe reincarnation.\n\nDeveloper: N3rdFall\nVersion: 0.1.1\n\n**Commands (WIP)**\n• !info - *Details about the ape himself.*\n• !dicksout - *Get 'em ready.*\n• !baby - *It's more than a three year old now.*");
 		return; 
 	}
 
 	function processCommands() {
 		switch(args[0].toLowerCase()) {
 			case "!info":
-				author.sendMessage("Harambe reincarnation developed by N3rdFall and coded in JavaScript (w/ Node.js).\n\n**Commands (WIP)**\n!dicksout | Get 'em ready.\n\n**Version**\n0.1.1");
+				author.sendMessage("**About**\nDigital Harambe reincarnation.\n\nDeveloper: N3rdFall\nVersion: 0.1.1\n\n**Commands (WIP)**\n• !info - *Details about the ape himself.*\n• !dicksout - *Get 'em ready.*\n• !baby - *It's more than a three year old now.*");
 				break;
 			case "!dicksout":
 				client.sendFile(message, "http://i2.mirror.co.uk/incoming/article8075004.ece/ALTERNATES/s615b/Harambe.jpg", "", ":monkey::point_down::point_down: ***DICKS OUT FOR*** :point_down::point_down::monkey:", (err, response) => setTimeout(() => response.delete(), 10000));
