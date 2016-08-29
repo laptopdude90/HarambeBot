@@ -3,6 +3,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const promptly = require("promptly");
+const config = require('./config/config.json');
 
 var players = {};
 
@@ -19,9 +20,9 @@ client.on("message", (message) => {
 	let content = message.cleanContent;
 	let args = content.split(" ");
 
-	if(message.channel.isPrivate) { 
+	if(message.channel.isPrivate) {
 		author.sendMessage("**About**\nDigital Harambe reincarnation.\n\nDeveloper: N3rdFall\nVersion: 0.1.0\n\n**Commands (WIP)**\n• !info - *Details about the ape himself.*\n• !dicksout - *Get 'em ready.*\n• !baby - *It's more than a three year old now.*");
-		return; 
+		return;
 	}
 
 	function processCommands() {
@@ -45,7 +46,7 @@ client.on("message", (message) => {
 							babyTime -= 1;
 							server.setNickname(`Baby (${babyTime}s)`, baby);
 							response.update(`:monkey::baby: **${baby.username} is in my enclosure for ${babyTime}s!** :baby::monkey:`);
-						} else { 
+						} else {
 							response.delete();
 							server.setNickname(null, baby);
 							clearInterval(timer);
@@ -110,11 +111,4 @@ client.on("ready", () => {
 	}
 });
 
-// TODO: Convert to use promises.
-promptly.prompt("Email: ", (err, result) => {
-	let email = result;
-	promptly.prompt("Password: ", (err, result) => {
-		let password = result;
-		client.login(email, password, err => console.log(err));
-	});
-});
+client.login(config.email, config.password, err => console.log(err));
